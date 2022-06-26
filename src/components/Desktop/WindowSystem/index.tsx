@@ -11,7 +11,6 @@ const WindowSystem: React.FC = () => {
 
   return (
     <Container>
-      <p>Windows...</p>
       {windows.map((window: WindowType, i: number) => (
         <Window title={window.name} id={window.id} key={i} />
       ))}

@@ -6,7 +6,7 @@ interface StateType {
 }
 
 const initialState: StateType = {
-  windows: [{ id: "1", name: "test", type: "exp", x: 10, y: 10 }]
+  windows: [{ id: "1", name: "Lorem ipsum", type: "exp", x: 10, y: 10 }]
 };
 
 export const windowsServiceSlice = createSlice({
