@@ -1,19 +1,20 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useSelector, useDispatch } from "react-redux";
-import { decrement, increment } from "../../../features/start_menu/startMenuSlice";
+import { useAppSelector, useAppDispatch } from "../../../hooks/store";
+import { toggleVisibility } from "../../../features/start_menu/startMenuSlice";
 import styled from "styled-components";
 import List from "./List/index";
 import Element from "./List/Element";
 import Separator from "./List/Separator";
 
 const StartMenu: React.FC = () => {
-  const isOpen = useSelector((state: any) => state.startMenuSlice.isOpen);
-  const dispatch = useDispatch();
+  const isOpen = useAppSelector((state: any) => state.startMenuSlice.isOpen);
+  const dispatch = useAppDispatch();
 
   return (
     <Container open={isOpen}>
+      <Backdrop onClick={() => dispatch(toggleVisibility(false))} />
       <Menu>
         <Left>
           <p>
@@ -35,12 +36,20 @@ const StartMenu: React.FC = () => {
 const Container = styled.div<{ open: boolean }>`
   display: ${(p) => (p.open ? "block" : "none")};
   position: absolute;
-  width: 15%;
+  width: 100%;
+  height: 100%;
   bottom: 0px;
   z-index: 99;
   user-select: none;
 `;
+const Backdrop = styled.div`
+  width: 100%;
+  height: 100%;
+`;
 const Menu = styled.div`
+  bottom: 0;
+  position: absolute;
+  width: 15%;
   height: 70vh;
   background-color: #818181;
   display: flex;
@@ -69,6 +78,5 @@ const Left = styled.div`
 `;
 const Right = styled.div`
   flex: 1;
-  padding: 0 4px;
 `;
 export default StartMenu;
