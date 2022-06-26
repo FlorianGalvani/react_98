@@ -10,7 +10,7 @@ const StartMenu: React.FC = () => {
   const dispatch = useDispatch();
 
   return (
-    <Container>
+    <Container open={isOpen}>
       <Menu>
         <p>Start menu</p>
       </Menu>
@@ -18,7 +18,8 @@ const StartMenu: React.FC = () => {
   );
 };
 
-const Container = styled.div`
+const Container = styled.div<{ open: boolean }>`
+  display: ${(p) => (p.open ? "block" : "none")};
   position: absolute;
   width: 20%;
   bottom: 0;
