@@ -10,6 +10,27 @@ on:
     branches: [ "master" ]
 
 jobs:
+  Linting:
+      name: Linting
+      runs-on: ubuntu-latest
+      if: "!contains(needs.pre_ci.outputs.commit_message, '[skip ci]')"
+      needs: pre_ci
+      steps:
+        - name: Checkout Project
+          uses: actions/checkout@v2
+        - name: Use Node.js 16
+          uses: actions/setup-node@v2
+          with:
+            node-version: 16
+        - name: Restore NodeJS Cache
+          uses: actions/cache@v2.1.4
+          with:
+            path: node_modules
+            key: ${{ runner.os }}-16-${{ hashFiles('**/yarn.lock') }}
+        - name: Install Dependencies
+          run: yarn --frozen-lockfile
+        - name: Run ESLint
+          run: yarn lint --fix=false    
   build:
 
     runs-on: ubuntu-latest
