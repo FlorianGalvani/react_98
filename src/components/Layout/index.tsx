@@ -1,6 +1,6 @@
 import Taskbar from "../Taskbar";
 
-import "./style.css";
+import styled from "styled-components";
 
 interface Props {
   children: React.ReactNode;
@@ -8,12 +8,18 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }: Props) => {
   return (
-    <div className="layout">
+    <Container>
       {children}
 
       <Taskbar />
-    </div>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+`;
 
 export default Layout;
