@@ -1,9 +1,11 @@
 import StartMenu from "../Menus/Start";
 import styled from "styled-components";
+import WindowSystem from "./WindowSystem";
 const Desktop: React.FC = () => {
   return (
     <Container>
       <StartMenu />
+      <WindowSystem />
       <div className="short_cuts">
         <div className="short_cut">
           <img width={32} height={32} src="./computer_explorer-3.png" alt="" />
