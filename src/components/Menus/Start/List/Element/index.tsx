@@ -1,5 +1,7 @@
+import React from "react";
 import styled from "styled-components";
 import { AiFillCaretRight } from "react-icons/ai";
+import Drawer from "../../Drawer";
 interface Props {
   imgUrl: string;
   title: string;
@@ -13,15 +15,19 @@ const defaultProps: Props = {
 };
 
 const Element: React.FC<Props> = (props: Props) => {
+  const [isOpen, setIsOpen] = React.useState<boolean>(true);
   return (
-    <Container>
+    <Container onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
       <img width={36} height={36} src={props.imgUrl} alt="" />
-      <p>{props.title}</p>
+      <p className="title">{props.title}</p>
       {props.isADrawer ? (
-        <DrawerArrow>
-          {" "}
-          <AiFillCaretRight color="" />{" "}
-        </DrawerArrow>
+        <>
+          {isOpen ? <Drawer /> : ""}
+          <DrawerArrow>
+            {" "}
+            <AiFillCaretRight color="" />
+          </DrawerArrow>
+        </>
       ) : (
         ""
       )}
@@ -37,7 +43,7 @@ const Container = styled.div`
   user-select: none;
   &:hover {
     background-color: rgba(16, 7, 135, 1);
-    p,
+    .title,
     svg {
       color: #fff;
     }
