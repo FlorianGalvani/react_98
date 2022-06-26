@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
 import { decrement, increment } from "../../../features/start_menu/startMenuSlice";
 import styled from "styled-components";

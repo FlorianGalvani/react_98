@@ -1,10 +1,18 @@
 import StartButton from "../Buttons/Start";
-import "./style.css";
+import styled from "styled-components";
 const Taskbar: React.FC = () => {
   return (
-    <div className="taskbar">
+    <Container>
       <StartButton />
-    </div>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  position: relative;
+  display: flex;
+  background-color: #818181;
+  padding: 3px 2px;
+  border-top: 1px solid #fff;
+`;
 export default Taskbar;
