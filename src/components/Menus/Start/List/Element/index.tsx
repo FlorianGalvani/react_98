@@ -15,7 +15,7 @@ const defaultProps: Props = {
 };
 
 const Element: React.FC<Props> = (props: Props) => {
-  const [isOpen, setIsOpen] = React.useState<boolean>(true);
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
   return (
     <Container onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
       <img width={36} height={36} src={props.imgUrl} alt="" />

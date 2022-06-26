@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../../../hooks/store";
 import { toggleVisibility } from "../../../features/start_menu/startMenuSlice";
 const StartButton: React.FC = () => {
-  const isOpen = useSelector((state: any) => state.startMenuSlice.isOpen);
-  const dispatch = useDispatch();
+  const isOpen = useAppSelector((state) => state.startMenuSlice.isOpen);
+  const dispatch = useAppDispatch();
 
   return (
     <Button open={isOpen} onClick={() => dispatch(toggleVisibility(!isOpen))}>
