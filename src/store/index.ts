@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import startMenuSlice from "../features/start_menu/startMenuSlice";
+import windowsServiceSlice from "../features/windows_service/windowsServiceSlice";
 
 export const store = configureStore({
   reducer: {
-    startMenuSlice: startMenuSlice
+    startMenuSlice: startMenuSlice,
+    windowsServiceSlice: windowsServiceSlice
   }
 });
 export type RootState = ReturnType<typeof store.getState>;

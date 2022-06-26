@@ -22,7 +22,7 @@ const Button = styled.button<{ open: boolean }>`
   border-bottom: ${(p) => (p.open ? "1px solid #fff" : "1px solid #575757")};
   border-left: ${(p) => (p.open ? "1px solid #575757" : "1px solid #fff")};
   box-shadow: ${(p) => (p.open ? "inset 1px 1px 0 #000" : "1px 1px 0 #000")};
-  padding: 6px 4px;
+  padding: 0px 4px;
   background-color: #818181;
   img {
     user-select: none;

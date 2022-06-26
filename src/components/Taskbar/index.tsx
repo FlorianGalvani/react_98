@@ -1,4 +1,4 @@
-import StartButton from "../Buttons/Start";
+import StartButton from "components/Buttons/Start";
 import styled from "styled-components";
 const Taskbar: React.FC = () => {
   return (
