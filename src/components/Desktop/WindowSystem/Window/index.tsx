@@ -6,18 +6,19 @@ import { useDrag } from "react-use-gesture";
 import Header from "./Header";
 import useWindowDimensions from "../../../../hooks/useWindowDimensions";
 import { ResizableBox } from "react-resizable";
+
 interface Props {
   key?: number;
   title: string;
   id: string;
 }
+
 const defaultProps: Props = {
   title: "",
   id: ""
 };
 const Window: React.FC<Props> = (props: Props) => {
   const { height, width } = useWindowDimensions();
-  const windowRef = React.useRef() as React.MutableRefObject<ResizableBox>;
   const [windowPos, setWindowPos] = React.useState({ x: 0, y: 0 });
   const [windowSize, setWindowSize] = React.useState({ width: 200, height: 200 });
   const resizeHandle = document.getElementsByClassName("react-resizable-handle");
@@ -51,16 +52,16 @@ const Window: React.FC<Props> = (props: Props) => {
       height={windowSize.height}
       width={windowSize.width}
       onResize={onResize}
-      style={{ top: windowPos.y, left: windowPos.x }}
-      ref={windowRef}
       minConstraints={[200, 200]}
       maxConstraints={[500, 500]}
-      {...bindWindowPos()}>
+      {...bindWindowPos()}
+      {...{ style: { top: windowPos.y, left: windowPos.x } }}>
       <Header title={props.title} id={props.id} />
       <p>Window</p>
     </Container>
   );
 };
+
 const Container = styled(ResizableBox)`
   position: relative;
   background-color: #818181;
