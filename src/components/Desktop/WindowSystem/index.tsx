@@ -21,8 +21,7 @@ const Container = styled.div`
   width: 100%;
   height: 95%;
   position: fixed;
-  color: #fff;
-  /* background-color: #0004; */
+  color: ${(props) => props.theme.colors.text.light};
 `;
 
 export default WindowSystem;

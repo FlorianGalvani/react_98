@@ -1,15 +1,17 @@
 import "./App.css";
 import Desktop from "./components/Desktop";
-
+import theme from "./theme";
+import { ThemeProvider } from "styled-components";
 // import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 // import Home from "./pages/home";
 import Layout from "./components/Layout";
 
 const App = (): JSX.Element => {
   return (
-    <Layout>
-      <Desktop />
-      {/* <Router>
+    <ThemeProvider theme={theme}>
+      <Layout>
+        <Desktop />
+        {/* <Router>
         <div>
           <nav>
             <ul>
@@ -32,7 +34,8 @@ const App = (): JSX.Element => {
           </Routes>
         </div>
       </Router> */}
-    </Layout>
+      </Layout>
+    </ThemeProvider>
   );
 };
 

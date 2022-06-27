@@ -7,7 +7,7 @@ const StartButton: React.FC = () => {
 
   return (
     <Button open={isOpen} onClick={() => dispatch(toggleVisibility(!isOpen))}>
-      <img src="/w98_Startup_logo.png" width={16} height={16}></img>
+      <img src="/w98_Startup_logo.png" width={21} height={21}></img>
       <p>Démarrer</p>
     </Button>
   );
@@ -22,16 +22,16 @@ const Button = styled.button<{ open: boolean }>`
   border-bottom: ${(p) => (p.open ? "1px solid #fff" : "1px solid #575757")};
   border-left: ${(p) => (p.open ? "1px solid #575757" : "1px solid #fff")};
   box-shadow: ${(p) => (p.open ? "inset 1px 1px 0 #000" : "1px 1px 0 #000")};
-  padding: 0px 4px;
-  background-color: #818181;
+  padding: 0px 6px;
+  background-color: ${(props) => props.theme.colors.layout.elements};
   img {
     user-select: none;
   }
   p {
-    margin-left: 4px;
-    font-size: 15px;
-    user-select: none;
     font-family: "Win98";
+    margin-left: 4px;
+    font-size: ${(props) => props.theme.font.size.normal};
+    user-select: none;
   }
 `;
 

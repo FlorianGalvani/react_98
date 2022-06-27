@@ -42,18 +42,17 @@ const Container = styled.div`
   padding: 4px 5px;
   user-select: none;
   &:hover {
-    background-color: rgba(16, 7, 135, 1);
+    background-color: ${(props) => props.theme.colors.layout.accent};
     .title,
     svg {
-      color: #fff;
+      color: ${(props) => props.theme.colors.text.light};
     }
   }
   img {
     margin-right: 10px;
   }
   p {
-    font-family: "Win98";
-    color: #000;
+    color: ${(props) => props.theme.colors.text.dark};
   }
 `;
 const DrawerArrow = styled.div`
