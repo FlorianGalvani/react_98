@@ -51,29 +51,35 @@ const Menu = styled.div`
   position: absolute;
   width: 15%;
   height: 70vh;
-  background-color: #818181;
+  background-color: ${(props) => props.theme.colors.layout.elements};
   display: flex;
-  border-top: solid 1px #fff;
-  border-right: solid 1px #000;
-  border-bottom: solid 1px #000;
-  border-left: solid 2px #fff;
+  border-top: solid 1px ${(props) => props.theme.colors.border.light};
+  border-right: solid 1px ${(props) => props.theme.colors.border.dark};
+  border-bottom: solid 1px ${(props) => props.theme.colors.border.dark};
+  border-left: solid 2px ${(props) => props.theme.colors.border.light};
 `;
 const Left = styled.div`
   display: flex;
   flex-direction: row-reverse;
-  background: rgb(16, 7, 135);
-  background: linear-gradient(0deg, rgba(16, 7, 135, 1) 7%, rgba(0, 0, 0, 1) 73%);
+  background: ${(props) => props.theme.colors.layout.accent};
+  background: linear-gradient(
+    0deg,
+    ${(props) => props.theme.colors.layout.accent} 7%,
+    rgba(0, 0, 0, 1) 73%
+  );
   writing-mode: vertical-lr;
   text-orientation: mixed;
-  color: #fff;
-  font-size: 32px;
-  span {
-    margin-top: 6px;
-    margin-bottom: 2px;
-    font-weight: 700;
-  }
+  color: ${(props) => props.theme.colors.text.light};
+  font-size: ${(props) => props.theme.font.size.largeTitle};
+  font-family: "Arial";
+
   p {
     transform: rotateZ(180deg);
+    span {
+      margin-top: 6px;
+      margin-bottom: 4px;
+      font-weight: ${(props) => props.theme.font.weight.bold};
+    }
   }
 `;
 const Right = styled.div`

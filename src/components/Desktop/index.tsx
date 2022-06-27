@@ -29,7 +29,7 @@ const Desktop: React.FC = () => {
 };
 const Container = styled.div`
   flex: 1;
-  background-color: #018281;
+  background-color: ${(props) => props.theme.colors.layout.body};
   position: relative;
   .short_cuts {
     display: flex;
@@ -47,8 +47,7 @@ const Container = styled.div`
       }
       p {
         margin-top: 8px;
-        font-family: "Win98";
-        color: #fff;
+        color: ${(props) => props.theme.colors.text.light};
       }
     }
   }

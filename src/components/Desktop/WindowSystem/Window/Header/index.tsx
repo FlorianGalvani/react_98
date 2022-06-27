@@ -19,7 +19,7 @@ const Header: React.FC<Props> = (props: Props) => {
   return (
     <Container>
       <WindowHeaderLeft>
-        <p>{props.title}</p>
+        <WindowTitle>{props.title}</WindowTitle>
       </WindowHeaderLeft>
       <WindowHeaderRight>
         <Buttons>
@@ -36,7 +36,7 @@ const Header: React.FC<Props> = (props: Props) => {
 Header.defaultProps = defaultProps;
 
 const Container = styled.div`
-  background-color: #100787;
+  background-color: ${(props) => props.theme.colors.layout.accent};
   display: flex;
   justify-content: space-between;
   padding: 4px 5px;
@@ -45,12 +45,12 @@ const WindowHeaderLeft = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  p {
-    font-family: "Win98";
-    user-select: none;
-    font-size: 16px;
-  }
 `;
+const WindowTitle = styled.div`
+  user-select: none;
+  font-size: ${(props) => props.theme.font.size.normal};
+`;
+
 const WindowHeaderRight = styled.div``;
 const Buttons = styled.div`
   display: flex;
@@ -62,15 +62,14 @@ const Button = styled.button`
   align-items: center;
   width: 16px;
   height: 16px;
-  font-size: 5px;
-  background-color: #818181;
+  font-size: ${(props) => props.theme.font.size.buttonIcon};
+  background-color: ${(props) => props.theme.colors.layout.elements};
   border-left: 2px solid #ededed;
   border-top: 2px solid #ededed;
   border-right: 2px solid #404040;
   border-bottom: 2px solid #404040;
   cursor: pointer;
   user-select: none;
-  font-family: "Win98";
 `;
 const ButtonClose = styled(Button)`
   margin-left: 2px;

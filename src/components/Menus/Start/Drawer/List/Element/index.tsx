@@ -19,13 +19,11 @@ const Container = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
-  color: #000;
-  /* padding: 2px; */
-
+  color: ${(props) => props.theme.colors.text.dark};
   &:hover {
-    background-color: rgba(16, 7, 135, 1);
+    background-color: ${(props) => props.theme.colors.layout.accent};
     .titlee {
-      color: #fff;
+      color: ${(props) => props.theme.colors.text.light};
     }
   }
 `;
