@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { Ref, useEffect } from "react";
 import styled from "styled-components";
 import { useDrag } from "react-use-gesture";
@@ -17,6 +18,7 @@ const defaultProps: Props = {
   title: "",
   id: ""
 };
+
 const Window: React.FC<Props> = (props: Props) => {
   const { height, width } = useWindowDimensions();
   const [windowPos, setWindowPos] = React.useState({ x: 0, y: 0 });
@@ -43,6 +45,7 @@ const Window: React.FC<Props> = (props: Props) => {
       bounds: { left: 0, right: width, top: 0, bottom: height - (height * 10) / 100 }
     }
   );
+
   const onResize = (event: any, { element, size, handle }: any) => {
     setWindowSize({ width: size.width, height: size.height });
   };
@@ -89,4 +92,5 @@ const Container = styled(ResizableBox)`
 `;
 
 Window.defaultProps = defaultProps;
+
 export default Window;
