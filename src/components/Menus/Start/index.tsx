@@ -53,26 +53,26 @@ const Menu = styled.div`
   position: absolute;
   width: 15%;
   height: 70vh;
-  background-color: ${(props) => props.theme.colors.layout.elements};
+  background-color: ${({ theme }) => theme.colors.layout.elements};
   display: flex;
-  border-top: solid 1px ${(props) => props.theme.colors.border.light};
-  border-right: solid 1px ${(props) => props.theme.colors.border.dark};
-  border-bottom: solid 1px ${(props) => props.theme.colors.border.dark};
-  border-left: solid 2px ${(props) => props.theme.colors.border.light};
+  border-top: solid 1px ${({ theme }) => theme.colors.border.light};
+  border-right: solid 1px ${({ theme }) => theme.colors.border.dark};
+  border-bottom: solid 1px ${({ theme }) => theme.colors.border.dark};
+  border-left: solid 2px ${({ theme }) => theme.colors.border.light};
 `;
 const Left = styled.div`
   display: flex;
   flex-direction: row-reverse;
-  background: ${(props) => props.theme.colors.layout.accent};
+  background: ${({ theme }) => theme.colors.layout.accent};
   background: linear-gradient(
     0deg,
-    ${(props) => props.theme.colors.layout.accent} 7%,
+    ${({ theme }) => theme.colors.layout.accent} 7%,
     rgba(0, 0, 0, 1) 73%
   );
   writing-mode: vertical-lr;
   text-orientation: mixed;
-  color: ${(props) => props.theme.colors.text.light};
-  font-size: ${(props) => props.theme.font.size.largeTitle};
+  color: ${({ theme }) => theme.colors.text.light};
+  font-size: ${({ theme }) => theme.font.size.largeTitle};
   font-family: "Arial";
 
   p {
@@ -80,7 +80,7 @@ const Left = styled.div`
     span {
       margin-top: 6px;
       margin-bottom: 4px;
-      font-weight: ${(props) => props.theme.font.weight.bold};
+      font-weight: ${({ theme }) => theme.font.weight.bold};
     }
   }
 `;

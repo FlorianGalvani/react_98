@@ -31,6 +31,6 @@ const Container = styled.div`
   border-left: 1px solid #575757;
 `;
 const Text = styled.span`
-  font-size: ${(props) => props.theme.font.size.normal};
+  font-size: ${({ theme }) => theme.font.size.normal};
 `;
 export default Widget;

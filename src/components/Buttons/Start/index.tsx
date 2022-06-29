@@ -17,20 +17,20 @@ const Container = styled.button<{ open: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: ${(p) => (p.open ? "1px solid #575757" : "1px solid #fff")};
-  border-right: ${(p) => (p.open ? "1px solid #fff" : "1px solid #575757")};
-  border-bottom: ${(p) => (p.open ? "1px solid #fff" : "1px solid #575757")};
-  border-left: ${(p) => (p.open ? "1px solid #575757" : "1px solid #fff")};
-  box-shadow: ${(p) => (p.open ? "inset 1px 1px 0 #000" : "1px 1px 0 #000")};
+  border-top: ${({ open }) => (open ? "1px solid #575757" : "1px solid #fff")};
+  border-right: ${({ open }) => (open ? "1px solid #fff" : "1px solid #575757")};
+  border-bottom: ${({ open }) => (open ? "1px solid #fff" : "1px solid #575757")};
+  border-left: ${({ open }) => (open ? "1px solid #575757" : "1px solid #fff")};
+  box-shadow: ${({ open }) => (open ? "inset 1px 1px 0 #000" : "1px 1px 0 #000")};
   padding: 0px 6px;
-  background-color: ${(props) => props.theme.colors.layout.elements};
+  background-color: ${({ theme }) => theme.colors.layout.elements};
   img {
     user-select: none;
   }
   p {
     font-family: "Win98";
     margin-left: 4px;
-    font-size: ${(props) => props.theme.font.size.normal};
+    font-size: ${({ theme }) => theme.font.size.normal};
     user-select: none;
   }
 `;

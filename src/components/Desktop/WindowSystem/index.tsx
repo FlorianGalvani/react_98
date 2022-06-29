@@ -23,7 +23,7 @@ const Container = styled.div`
   position: fixed;
   top: 0;
   z-index: 1;
-  color: ${(props) => props.theme.colors.text.light};
+  color: ${({ theme }) => theme.colors.text.light};
   user-select: none;
   pointer-events: none;
 `;

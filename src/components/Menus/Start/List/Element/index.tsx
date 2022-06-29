@@ -42,17 +42,17 @@ const Container = styled.div`
   padding: 4px 5px;
   user-select: none;
   &:hover {
-    background-color: ${(props) => props.theme.colors.layout.accent};
+    background-color: ${({ theme }) => theme.colors.layout.accent};
     .title,
     svg {
-      color: ${(props) => props.theme.colors.text.light};
+      color: ${({ theme }) => theme.colors.text.light};
     }
   }
   img {
     margin-right: 10px;
   }
   p {
-    color: ${(props) => props.theme.colors.text.dark};
+    color: ${({ theme }) => theme.colors.text.dark};
   }
 `;
 const DrawerArrow = styled.div`

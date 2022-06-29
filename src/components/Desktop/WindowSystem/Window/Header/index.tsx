@@ -36,7 +36,7 @@ const Header: React.FC<Props> = (props: Props) => {
 Header.defaultProps = defaultProps;
 
 const Container = styled.div`
-  background-color: ${(props) => props.theme.colors.layout.accent};
+  background-color: ${({ theme }) => theme.colors.layout.accent};
   display: flex;
   justify-content: space-between;
   padding: 4px 5px;
@@ -48,7 +48,7 @@ const WindowHeaderLeft = styled.div`
 `;
 const WindowTitle = styled.div`
   user-select: none;
-  font-size: ${(props) => props.theme.font.size.normal};
+  font-size: ${({ theme }) => theme.font.size.normal};
 `;
 
 const WindowHeaderRight = styled.div``;
@@ -62,8 +62,8 @@ const Button = styled.button`
   align-items: center;
   width: 16px;
   height: 16px;
-  font-size: ${(props) => props.theme.font.size.buttonIcon};
-  background-color: ${(props) => props.theme.colors.layout.elements};
+  font-size: ${({ theme }) => theme.font.size.buttonIcon};
+  background-color: ${({ theme }) => theme.colors.layout.elements};
   border-left: 2px solid #ededed;
   border-top: 2px solid #ededed;
   border-right: 2px solid #404040;

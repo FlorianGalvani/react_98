@@ -14,7 +14,7 @@ const Desktop: React.FC = () => {
 };
 const Container = styled.div`
   flex: 1;
-  background-color: ${(props) => props.theme.colors.layout.body};
+  background-color: ${({ theme }) => theme.colors.layout.body};
   position: relative;
 `;
 export default Desktop;

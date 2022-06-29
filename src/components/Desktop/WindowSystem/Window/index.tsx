@@ -72,7 +72,7 @@ const Window: React.FC<Props> = (props: Props) => {
 
 const Container = styled(ResizableBox)`
   position: relative;
-  background-color: ${(props) => props.theme.colors.layout.elements};
+  background-color: ${({ theme }) => theme.colors.layout.elements};
   width: 40%;
   border-top: 1px solid #fff;
   border-right: 1px solid #575757;

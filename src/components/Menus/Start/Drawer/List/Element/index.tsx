@@ -19,11 +19,11 @@ const Container = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
-  color: ${(props) => props.theme.colors.text.dark};
+  color: ${({ theme }) => theme.colors.text.dark};
   &:hover {
-    background-color: ${(props) => props.theme.colors.layout.accent};
+    background-color: ${({ theme }) => theme.colors.layout.accent};
     .titlee {
-      color: ${(props) => props.theme.colors.text.light};
+      color: ${({ theme }) => theme.colors.text.light};
     }
   }
 `;

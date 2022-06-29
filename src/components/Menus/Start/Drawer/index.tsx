@@ -12,7 +12,7 @@ const Container = styled.div`
   right: -100%;
   top: -1px;
   width: 100%;
-  background-color: ${(props) => props.theme.colors.layout.elements};
+  background-color: ${({ theme }) => theme.colors.layout.elements};
   border-top: solid 1px #fff;
   border-right: solid 1px #000;
   border-bottom: solid 1px #000;

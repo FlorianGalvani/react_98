@@ -50,8 +50,8 @@ const Container = styled.div`
 const Image = styled.img``;
 const Title = styled.p`
   margin-top: 8px;
-  color: ${(props) => props.theme.colors.text.light};
-  font-size: ${(props) => props.theme.font.size.normal};
+  color: ${({ theme }) => theme.colors.text.light};
+  font-size: ${({ theme }) => theme.font.size.normal};
 `;
 Shortcut.defaultProps = defaultProps;
 
