@@ -28,6 +28,16 @@ const theme = {
       light: "#fff",
       dark: "#000"
     }
+  },
+  breakpoint: {
+    /* Desktops and laptops */
+    desktop: "1824px",
+    /* iPads (landscape) */
+    laptop: "1224px",
+    /* iPads (portrait) */
+    tablet: "1024px",
+    /* Smartphones (landscape) */
+    mobile: "768px"
   }
 };
 export default theme;
