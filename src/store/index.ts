@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import startMenuSlice from "../features/start_menu/startMenuSlice";
-import windowsServiceSlice from "../features/windows_service/windowsServiceSlice";
+import startMenuSlice from "features/start_menu/startMenuSlice";
+import windowsServiceSlice from "features/windows_service/windowsServiceSlice";
 
 export const store = configureStore({
   reducer: {

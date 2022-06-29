@@ -1,4 +1,4 @@
-import Taskbar from "../Taskbar";
+import Taskbar from "components/Taskbar";
 
 import styled from "styled-components";
 

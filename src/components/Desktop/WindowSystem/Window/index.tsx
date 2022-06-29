@@ -5,7 +5,7 @@ import React, { Ref, useEffect } from "react";
 import styled from "styled-components";
 import { useDrag } from "react-use-gesture";
 import Header from "./Header";
-import useWindowDimensions from "../../../../hooks/useWindowDimensions";
+import useWindowDimensions from "hooks/useWindowDimensions";
 import { ResizableBox } from "react-resizable";
 
 interface Props {

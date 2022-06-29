@@ -1,4 +1,4 @@
-import StartMenu from "../Menus/Start";
+import StartMenu from "components/Menus/Start";
 import styled from "styled-components";
 import WindowSystem from "./WindowSystem";
 import Shortcuts from "./Shortcuts";

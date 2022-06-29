@@ -20,7 +20,9 @@ const Container = styled.div`
   position: fixed;
   top: 0;
   z-index: 1;
-  /* background-color: #7c0101; */
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    width: 60%;
+  }
 `;
 
 export default Shortcuts;
