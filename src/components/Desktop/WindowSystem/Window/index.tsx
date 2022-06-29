@@ -21,12 +21,15 @@ const defaultProps: Props = {
 
 const Window: React.FC<Props> = (props: Props) => {
   const { height, width } = useWindowDimensions();
-  const [windowPos, setWindowPos] = React.useState({ x: 0, y: 0 });
+  const [windowPos, setWindowPos] = React.useState({ x: 200, y: 100 });
   const [windowSize, setWindowSize] = React.useState({ width: 200, height: 200 });
   const resizeHandle = document.getElementsByClassName("react-resizable-handle");
   const [isWindowMovable, setIsWindowMovable] = React.useState(true);
 
   useEffect(() => {
+    console.log("height : ", height);
+    console.log("width : ", width);
+
     resizeHandle[0].addEventListener("mouseenter", (e) => {
       setIsWindowMovable(false);
     });
@@ -38,11 +41,13 @@ const Window: React.FC<Props> = (props: Props) => {
   const bindWindowPos = useDrag(
     (params) => {
       if (isWindowMovable) {
-        setWindowPos({ x: params.offset[0], y: params.offset[1] });
+        if (params.offset[0] !== 0 && params.offset[1] !== 0) {
+          setWindowPos({ x: params.offset[0], y: params.offset[1] });
+        }
       }
     },
     {
-      bounds: { left: 0, right: width, top: 0, bottom: height - (height * 10) / 100 }
+      bounds: { left: 0, right: width, top: 0, bottom: height - (height * 29.5) / 100 }
     }
   );
 
@@ -74,7 +79,7 @@ const Container = styled(ResizableBox)`
   border-bottom: 1px solid #575757;
   border-left: 1px solid #fff;
   box-shadow: 1px 1px 0 #000;
-
+  pointer-events: all;
   .react-resizable-handle {
     position: absolute;
     width: 20px;

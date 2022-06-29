@@ -3,6 +3,7 @@ export type ThemeType = typeof theme; // This is the type definition for my them
 const theme = {
   font: {
     size: {
+      tiny: "14px",
       normal: "16px",
       largeTitle: "32px",
       buttonIcon: "5px"

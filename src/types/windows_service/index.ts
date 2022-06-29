@@ -1,7 +1,6 @@
 export interface WindowType {
   id: string;
-  name: string;
-  type: string;
-  x: number;
-  y: number;
+  title: string;
+  isFocused: boolean;
+  type?: string;
 }

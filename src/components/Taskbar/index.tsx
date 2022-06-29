@@ -1,9 +1,16 @@
 import StartButton from "components/Buttons/Start";
 import styled from "styled-components";
+import List from "./List";
+import Separator from "./Separator";
+import Widget from "./Widget";
 const Taskbar: React.FC = () => {
   return (
     <Container>
       <StartButton />
+      <Separator />
+      <List />
+      <Separator />
+      <Widget />
     </Container>
   );
 };

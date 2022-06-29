@@ -1,12 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { WindowType } from "../../types/windows_service/index";
+import { WindowType } from "types/windows_service/index";
 
 interface StateType {
   windows: WindowType[];
+  focusedWindow: number | null;
 }
 
 const initialState: StateType = {
-  windows: [{ id: "1", name: "Lorem ipsum", type: "exp", x: 10, y: 10 }]
+  windows: [],
+  focusedWindow: null
 };
 
 export const windowsServiceSlice = createSlice({
@@ -14,24 +16,46 @@ export const windowsServiceSlice = createSlice({
   initialState,
   reducers: {
     addWindow: (state, action) => {
+      console.log("add window");
       const window: WindowType = action.payload;
+      if (state.windows.length > 0) {
+        for (let index = 0; index < state.windows.length; index++) {
+          state.windows[index].isFocused = false;
+        }
+      }
+      state.focusedWindow = state.windows.length;
       state.windows.push(window);
     },
     removeWindow: (state, action) => {
       console.log("remove window");
-      let i = 0;
-
-      state.windows.forEach((window) => {
-        if (window.id === action.payload) {
-          state.windows.splice(i, i);
+      if (state.windows.length > 1) {
+        let i = 0;
+        state.windows.forEach((window) => {
+          if (window.id == action.payload) {
+            state.windows.splice(i, i);
+          }
+          i++;
+        });
+      } else {
+        state.windows.pop();
+      }
+    },
+    setFocusedWindow: (state, action) => {
+      console.log("Window is " + action.payload + "focused");
+      state.focusedWindow = action.payload;
+    },
+    unfocusWindow: (state) => {
+      if (state.windows.length > 0) {
+        for (let index = 0; index < state.windows.length; index++) {
+          state.windows[index].isFocused = false;
         }
-        i++;
-      });
+      }
     }
   }
 });
 
 // Action creators are generated for each case reducer function
-export const { addWindow, removeWindow } = windowsServiceSlice.actions;
+export const { addWindow, removeWindow, unfocusWindow, setFocusedWindow } =
+  windowsServiceSlice.actions;
 
 export default windowsServiceSlice.reducer;
