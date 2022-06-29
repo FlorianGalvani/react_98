@@ -58,7 +58,6 @@ const Menu = styled.div`
   border-top: solid 1px ${({ theme }) => theme.colors.border.light};
   border-right: solid 1px ${({ theme }) => theme.colors.border.dark};
   border-bottom: solid 1px ${({ theme }) => theme.colors.border.dark};
-  border-left: solid 2px ${({ theme }) => theme.colors.border.light};
 `;
 const Left = styled.div`
   display: flex;
