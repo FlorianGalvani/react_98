@@ -6,14 +6,14 @@ const StartButton: React.FC = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <Button open={isOpen} onClick={() => dispatch(toggleVisibility(!isOpen))}>
+    <Container open={isOpen} onClick={() => dispatch(toggleVisibility(!isOpen))}>
       <img src="/w98_Startup_logo.png" width={21} height={21}></img>
       <p>Démarrer</p>
-    </Button>
+    </Container>
   );
 };
 
-const Button = styled.button<{ open: boolean }>`
+const Container = styled.button<{ open: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;

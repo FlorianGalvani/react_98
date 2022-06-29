@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useAppSelector, useAppDispatch } from "../../../hooks/store";
-import { toggleVisibility } from "../../../features/start_menu/startMenuSlice";
+import { useAppSelector, useAppDispatch } from "hooks/store";
+import { toggleVisibility } from "features/start_menu/startMenuSlice";
 import styled from "styled-components";
 import List from "./List/index";
 import Element from "./List/Element";
@@ -11,10 +11,12 @@ import Separator from "./List/Separator";
 const StartMenu: React.FC = () => {
   const isOpen = useAppSelector((state: any) => state.startMenuSlice.isOpen);
   const dispatch = useAppDispatch();
-
+  const onClickBackdrop = () => {
+    dispatch(toggleVisibility(false));
+  };
   return (
     <Container open={isOpen}>
-      <Backdrop onClick={() => dispatch(toggleVisibility(false))} />
+      <Backdrop onClick={() => onClickBackdrop} />
       <Menu>
         <Left>
           <p>
