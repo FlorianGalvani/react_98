@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Image from "components/Image";
 interface Props {
   iconUrl: string;
   title: string;
@@ -10,7 +11,7 @@ const defaultProps: Props = {
 const Element: React.FC<Props> = (props: Props) => {
   return (
     <Container>
-      <img src={props.iconUrl} width={24} height={24} alt="" />
+      <Image src={props.iconUrl} width={24} height={24} alt="" />
       <p className="titlee">{props.title}</p>
     </Container>
   );

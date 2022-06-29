@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useAppDispatch } from "hooks/store";
 import { removeWindow } from "features/windows_service/windowsServiceSlice";
+import Image from "components/Image";
 
 interface Props {
   title: string;
@@ -26,7 +27,7 @@ const Header: React.FC<Props> = (props: Props) => {
           <Button>_</Button>
           <Button>-</Button>
           <ButtonClose onClick={() => closeWindow(props.id)}>
-            <img src="close-icon.png" alt="" />
+            <Image width={10} height={10} src="close-icon.png" alt="" />
           </ButtonClose>
         </Buttons>
       </WindowHeaderRight>

@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { useAppDispatch } from "hooks/store/index";
 import { addWindow } from "features/windows_service/windowsServiceSlice";
 import { WindowType } from "types/windows_service/index";
+import Image from "components/Image/index";
+
 interface Props {
   title: string;
   thumbnail: string;
@@ -47,7 +49,7 @@ const Container = styled.div`
   margin-top: 20px;
   cursor: pointer;
 `;
-const Image = styled.img``;
+
 const Title = styled.p`
   margin-top: 8px;
   color: ${({ theme }) => theme.colors.text.light};

@@ -1,3 +1,4 @@
+import Image from "components/Image";
 import styled from "styled-components";
 interface Props {
   title: string;
@@ -7,7 +8,7 @@ interface Props {
 const Element: React.FC<Props> = ({ title, icon, isFocused }: Props) => {
   return (
     <Container isFocused={isFocused}>
-      <img src={icon} width={15} height={15} alt="" />
+      <Image src={icon} width={15} height={15} alt="" />
       <Title>{title}</Title>
     </Container>
   );
@@ -23,9 +24,6 @@ const Container = styled.div<{ isFocused: boolean }>`
   box-shadow: ${({ isFocused }) => (isFocused ? "inset 1px 1px 0 #000" : "1px 1px 0 #000")};
   padding: 0px 6px;
   background-color: ${({ theme }) => theme.colors.layout.elements};
-  img {
-    user-select: none;
-  }
   &:not(:first-child) {
     margin-left: 5px;
   }

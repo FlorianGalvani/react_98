@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { AiFillCaretRight } from "react-icons/ai";
 import Drawer from "components/Menus/Start/Drawer";
+import Image from "components/Image";
 
 interface Props {
   imgUrl: string;
@@ -20,7 +21,7 @@ const Element: React.FC<Props> = (props: Props) => {
 
   return (
     <Container onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
-      <img width={36} height={36} src={props.imgUrl} alt="" />
+      <Icon width={36} height={36} src={props.imgUrl} alt="" />
       <p className="title">{props.title}</p>
       {props.isADrawer ? (
         <>
@@ -50,12 +51,13 @@ const Container = styled.div`
       color: ${({ theme }) => theme.colors.text.light};
     }
   }
-  img {
-    margin-right: 10px;
-  }
   p {
     color: ${({ theme }) => theme.colors.text.dark};
   }
+`;
+
+const Icon = styled(Image)`
+  margin-right: 10px;
 `;
 
 const DrawerArrow = styled.div`
