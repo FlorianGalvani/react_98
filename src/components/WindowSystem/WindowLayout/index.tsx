@@ -6,44 +6,24 @@ import styled from "styled-components";
 import { useDrag } from "react-use-gesture";
 import Header from "./Header";
 import useWindowDimensions from "hooks/useWindowDimensions";
-import { ResizableBox } from "react-resizable";
+import { getBody } from "components/Windows/index";
 
 interface Props {
   key?: number;
   title: string;
   id: string;
+  ref?: any;
+  name?: string;
 }
 
-const defaultProps: Props = {
-  title: "",
-  id: ""
-};
-
-const Window: React.FC<Props> = (props: Props) => {
+const Window: React.FC<Props> = ({ key, title, id, name }: Props) => {
   const { height, width } = useWindowDimensions();
   const [windowPos, setWindowPos] = React.useState({ x: 200, y: 100 });
-  const [windowSize, setWindowSize] = React.useState({ width: 200, height: 200 });
-  const resizeHandle = document.getElementsByClassName("react-resizable-handle");
-  const [isWindowMovable, setIsWindowMovable] = React.useState(true);
-
-  useEffect(() => {
-    console.log("height : ", height);
-    console.log("width : ", width);
-
-    resizeHandle[0].addEventListener("mouseenter", (e) => {
-      setIsWindowMovable(false);
-    });
-    resizeHandle[0].addEventListener("mouseleave", (e) => {
-      setIsWindowMovable(true);
-    });
-  }, []);
 
   const bindWindowPos = useDrag(
     (params) => {
-      if (isWindowMovable) {
-        if (params.offset[0] !== 0 && params.offset[1] !== 0) {
-          setWindowPos({ x: params.offset[0], y: params.offset[1] });
-        }
+      if (params.offset[0] !== 0 && params.offset[1] !== 0) {
+        setWindowPos({ x: params.offset[0], y: params.offset[1] });
       }
     },
     {
@@ -51,29 +31,18 @@ const Window: React.FC<Props> = (props: Props) => {
     }
   );
 
-  const onResize = (event: any, { element, size, handle }: any) => {
-    setWindowSize({ width: size.width, height: size.height });
-  };
-
   return (
-    <Container
-      height={windowSize.height}
-      width={windowSize.width}
-      onResize={onResize}
-      minConstraints={[200, 200]}
-      maxConstraints={[500, 500]}
-      {...bindWindowPos()}
-      {...{ style: { top: windowPos.y, left: windowPos.x } }}>
-      <Header title={props.title} id={props.id} />
-      <p>Window</p>
+    <Container {...bindWindowPos()} {...{ style: { top: windowPos.y, left: windowPos.x } }}>
+      <Header title={title} id={id} />
+      {getBody(name)}
     </Container>
   );
 };
 
-const Container = styled(ResizableBox)`
+const Container = styled.div`
   position: relative;
   background-color: ${({ theme }) => theme.colors.layout.elements};
-  width: 40%;
+  max-width: 100vh;
   border-top: 1px solid #fff;
   border-right: 1px solid #575757;
   border-bottom: 1px solid #575757;
@@ -95,7 +64,5 @@ const Container = styled(ResizableBox)`
     cursor: se-resize;
   }
 `;
-
-Window.defaultProps = defaultProps;
 
 export default Window;

@@ -51,8 +51,8 @@ const Backdrop = styled.div`
 const Menu = styled.div`
   bottom: 0;
   position: absolute;
-  width: 15%;
-  height: 70vh;
+  width: 250px;
+  height: 50%;
   background-color: ${({ theme }) => theme.colors.layout.elements};
   display: flex;
   border-top: solid 1px ${({ theme }) => theme.colors.border.light};

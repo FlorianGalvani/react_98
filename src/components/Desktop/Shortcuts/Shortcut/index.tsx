@@ -8,12 +8,9 @@ interface Props {
   title: string;
   thumbnail: string;
   selected: boolean;
+  name: string;
 }
-const defaultProps: Props = {
-  title: "Lorem Ipsum",
-  thumbnail: "help_question_mark-0.png",
-  selected: false
-};
+
 function makeid(length: number) {
   let result = "";
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -29,7 +26,8 @@ const Shortcut: React.FC<Props> = (props: Props) => {
     const windowData: WindowType = {
       id: makeid(7),
       title: props.title,
-      isFocused: true
+      isFocused: true,
+      name: props.name
     };
     dispatch(addWindow(windowData));
   };
@@ -55,6 +53,5 @@ const Title = styled.p`
   color: ${({ theme }) => theme.colors.text.light};
   font-size: ${({ theme }) => theme.font.size.normal};
 `;
-Shortcut.defaultProps = defaultProps;
 
 export default Shortcut;

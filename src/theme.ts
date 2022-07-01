@@ -18,14 +18,14 @@ const theme = {
       body: "#018281",
       elements: "#818181",
       separator: "#2a2a2a",
-      accent: "#100787"
+      accent: "#010081"
     },
     border: {
-      light: "#fff",
+      light: "#fdffff",
       dark: "#000"
     },
     text: {
-      light: "#fff",
+      light: "#fdffff",
       dark: "#000"
     }
   },

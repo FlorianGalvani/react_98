@@ -5,14 +5,14 @@ import React from "react";
 import styled from "styled-components";
 import { WindowType } from "types/windows_service";
 import { useAppSelector } from "hooks/store";
-import Window from "./Window";
+import Window from "./WindowLayout";
 const WindowSystem: React.FC = () => {
   const windows = useAppSelector((state) => state.windowsServiceSlice.windows);
 
   return (
     <Container>
       {windows.map((window: WindowType, i: number) => (
-        <Window title={window.title} id={window.id} key={i} />
+        <Window name={window.name} title={window.title} id={window.id} key={i} />
       ))}
     </Container>
   );
